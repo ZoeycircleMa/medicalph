@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Medical Image Embeddings – How They Work</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #ffffff;
+      color: #222222;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    .section {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 3rem 1rem 5rem 1rem;
+    }
+
+    h1 {
+      color: #005f99;
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      color: #0077cc;
+      font-size: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    p {
+      margin-bottom: 1.3rem;
+    }
+
+    video {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      margin-top: 1.5rem;
+      box-shadow: 0 0 15px rgba(0, 128, 255, 0.1);
+      display: block;
+    }
+
+    .caption {
+      font-size: 0.95rem;
+      color: #666666;
+      margin-top: 0.5rem;
+      text-align: center;
+    }
+
+    strong {
+      color: #005f99;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="section">
+    <h1>From MRI Pixels to Mathematical Insights: Why Embeddings Matter</h1>
+    <p>
+      Before we can apply powerful topological tools like <strong>Persistent Homology</strong>,
+      we need to convert medical images into something that mathematics can work with—namely, vectors.
+      This is where <strong>embeddings</strong> come in: they transform complex chest MRI scans into high-dimensional feature vectors
+      that capture visual and semantic cues like anatomical shapes, tissue contrast, and even disease signatures.
+    </p>
+
+    <p>
+      Think of embeddings as compressed representations of the image’s "essence"—where proximity between vectors in space
+      reflects visual or clinical similarity between patients. These vectors allow us to explore structure at scale.
+    </p>
+
+    <h2>🔍 How are these embeddings computed?</h2>
+    <p>
+      In this project, we use a powerful visual-language model called <strong>CLIP</strong>—pretrained on millions of images—to extract embeddings from chest MRIs.
+      The model maps each scan into a high-dimensional space where similar images cluster together, even without explicit labels.
+      This serves as the foundation for subsequent topological analysis.
+    </p>
+
+    <video autoplay muted loop>
+      <source src="assets/tsne_hover_demo.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <p class="caption">A t-SNE visualization of CLIP-based embeddings for chest MRI slices. Hovering reveals cluster structures.</p>
+
+    <h2>🧠 Why Embeddings Are Crucial for TDA</h2>
+    <p>
+      Embeddings allow us to bridge the visual world of medicine and the abstract world of topology.
+      Once images are embedded, we can compute persistent diagrams, examine feature lifespans,
+      and compare topological signatures across cohorts or conditions.
+      In short, embeddings are the gateway to meaningful, shape-aware analysis.
+    </p>
+  </div>
+</body>
+</html>

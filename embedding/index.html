@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Beyond Pixels: A Topological Journey Through Medical Imaging</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"/>
+ <style>
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #ffffff;
+    color: #111111;
+    line-height: 1.6;
+  }
+
+  .nav {
+    position: sticky;
+    top: 0;
+    background: #f5f5f5;
+    border-bottom: 1px solid #ddd;
+    padding: 1rem 2rem;
+    z-index: 10;
+  }
+
+  .nav a {
+    color: #0077cc;
+    text-decoration: none;
+    margin-right: 1.2rem;
+    font-weight: bold;
+  }
+
+  .nav a:hover {
+    text-decoration: underline;
+  }
+
+  .section {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0.8rem 1rem;
+  }
+
+  .section + .section {
+    margin-top: 0;
+  }
+
+  h1, h2 {
+    color: #111;
+    margin: 0.8rem 0 0.4rem 0;
+  }
+
+  iframe {
+    width: 100%;
+    border: none;
+    margin-bottom: 0.5rem;
+    transition: height 0.3s ease;
+  }
+</style>
+
+<script>
+  function resizeIframe(iframe) {
+    if (!iframe) return;
+    const resize = () => {
+      try {
+        const doc = iframe.contentDocument || iframe.contentWindow.document;
+        if (doc && doc.body && doc.documentElement) {
+          iframe.style.height = doc.documentElement.scrollHeight + 'px';
+        }
+      } catch (e) {
+        console.warn("Iframe resize failed", e);
+      }
+    };
+    resize();
+    setTimeout(resize, 300); // Fallback for delayed rendering
+  }
+</script>
+
+</head>
+<body>
+
+  <div class="nav">
+    <a href="#home">Home</a>
+    <a href="#ph-animation">PH Animation</a>
+    <a href="#embedding">Embedding</a>
+    <a href="#metrics">Metrics</a>
+    <a href="#comparison">Comparison</a>
+    <a href="#advantage">Advantage</a>
+    <a href="#resources">Resources</a>
+  </div>
+
+  <section id="home" class="section">
+  <h1>🧠 Beyond Pixels: A Topological Journey Through Medical Imaging</h1>
+  <p>
+    Medical imaging is rich, complex, and often visually overwhelming. But beneath every MRI scan lies a hidden structure—
+    patterns not easily captured by traditional pixel-level analysis. What if we could extract that structure,
+    quantify it, and compare it across datasets and institutions?
+  </p>
+
+  <p>
+    This project explores how <strong>topological data analysis (TDA)</strong> and <strong>visual-language models like CLIP</strong>
+    can work together to uncover the shape of medical data. From extracting embeddings to analyzing persistent homology,
+    we walk through a modular, explainable pipeline built around <em>intuitive visualizations</em> and <em>mathematical rigor</em>.
+  </p>
+
+  <p>
+    Whether you're a data scientist, radiologist, or just curious about how geometry meets medicine—
+    this journey offers a fresh perspective on what medical data can reveal <strong>beyond pixels</strong>.
+  </p>
+</section>
+
+  <section id="ph-animation" class="section">
+    <h2>🌀 Persistent Homology Animation</h2>
+    <iframe src="ph-animation.html" scrolling="no" style="overflow:hidden" onload="resizeIframe(this)"></iframe>
+  </section>
+
+  <section id="embedding" class="section">
+    <h2>📊 Embedding</h2>
+    <iframe src="embedding.html" scrolling="no" style="overflow:hidden" onload="resizeIframe(this)"></iframe>
+  </section>
+
+  <section id="metrics" class="section">
+    <h2>📈 Metrics</h2>
+    <iframe src="metrics.html" scrolling="no" style="overflow:hidden" onload="resizeIframe(this)"></iframe>
+  </section>
+
+  <section id="comparison" class="section">
+    <h2>🔍 Dataset Comparison</h2>
+    <iframe src="comparison.html" scrolling="no" style="overflow:hidden" onload="resizeIframe(this)"></iframe>
+  </section>
+
+  <section id="advantage" class="section">
+    <h2>🌟 Why Combine Metrics?</h2>
+    <iframe src="advantage.html" scrolling="no" style="overflow:hidden" onload="resizeIframe(this)"></iframe>
+  </section>
+
+  <section id="resources" class="section">
+    <h2>📚 Resources</h2>
+    <iframe src="resources.html" scrolling="no" style="overflow:hidden" onload="resizeIframe(this)"></iframe>
+  </section>
+
+</body>
+</html>
