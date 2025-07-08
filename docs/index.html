@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Beyond Pixels: A Topological Journey Through Medical Imaging</title>
+  <title>Beyond Pixels: How Topology Unlocks Universal Patterns in Images ?</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"/>
  <style>
@@ -89,23 +89,32 @@
   </div>
 
   <section id="home" class="section">
-  <h1>🧠 Beyond Pixels: A Topological Journey Through Medical Imaging</h1>
+  <h1>🧠 Beyond Pixels: How Topology Unlocks Universal Patterns in Images ?</h1>
   <p>
-    Medical imaging is rich, complex, and often visually overwhelming. But beneath every MRI scan lies a hidden structure—
-    patterns not easily captured by traditional pixel-level analysis. What if we could extract that structure,
-    quantify it, and compare it across datasets and institutions?
-  </p>
+  Image embeddings carry more than just pixels — they encode structure, geometry, and relationships that we don’t always see at first glance.
+  But how do we measure that structure? How can we tell if two groups of images differ not just in appearance, but in <em>shape of distribution</em>?
+</p>
 
-  <p>
-    This project explores how <strong>topological data analysis (TDA)</strong> and <strong>visual-language models like CLIP</strong>
-    can work together to uncover the shape of medical data. From extracting embeddings to analyzing persistent homology,
-    we walk through a modular, explainable pipeline built around <em>intuitive visualizations</em> and <em>mathematical rigor</em>.
-  </p>
+<p>
+  This project explores how <strong>persistent homology (PH)</strong>, a tool from topology, can reveal meaningful structural patterns in embedding space —
+  capturing loops, clusters, and voids beyond traditional statistics like entropy or pairwise distances.
+</p>
 
-  <p>
-    Whether you're a data scientist, radiologist, or just curious about how geometry meets medicine—
-    this journey offers a fresh perspective on what medical data can reveal <strong>beyond pixels</strong>.
-  </p>
+<p>
+  Using embeddings from modern models like <strong>CLIP</strong>, we apply both <strong>statistical metrics</strong> (e.g. Vendi entropy) and <strong>topological summaries</strong> (e.g. PH diagrams)
+  to compare image groups — sometimes they agree, sometimes not. And those moments of disagreement are where PH shines most.
+</p>
+
+<p>
+  To make this intuitive, we construct four visual case studies using everyday images (from datasets like <strong>CIFAR‑10</strong> and <strong>MNIST, Fashion-MNIST</strong>).
+  These show when statistical diversity aligns with topological structure — and when it doesn’t.
+</p>
+
+<p>
+  Whether you're curious about shape in data, or exploring new ways to interpret embeddings,
+  this project shows how <strong>geometry + deep learning</strong> can offer fresh insights into data diversity — both measurable and visual.
+</p>
+
 </section>
 
   <section id="ph-animation" class="section">

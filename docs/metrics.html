@@ -42,13 +42,12 @@
     }
 
     img {
-  width: 100%;
-  max-width: 720px;
-  display: block;
-  margin: 0.8rem auto 1.2rem auto;
-  border-radius: 8px;
-}
-
+      width: 100%;
+      max-width: 720px;
+      display: block;
+      margin: 0.8rem auto 1.2rem auto;
+      border-radius: 8px;
+    }
 
     strong {
       color: #005f99;
@@ -62,11 +61,36 @@
       In this analysis, we compare two fundamentally different ways to measure diversity in medical image embeddings:
     </p>
     <ul>
-      <li><strong>Vendi Score</strong>: captures entropy in the embedding space, reflecting how broadly distributed the vectors are.</li>
-      <li><strong>Persistent Homology (PH)</strong>: captures the shape and structure of the distribution using tools from algebraic topology.</li>
+      <li>
+        <strong>Vendi Score</strong>: a statistical metric that captures entropy in the embedding space, reflecting how broadly and unpredictably vectors are distributed. If all embeddings are similar, the score is low; if they're highly diverse and dissimilar, the score rises.
+      </li>
+      <li>
+        <strong>Persistent Homology (PH)</strong>: a topological tool that reveals the shape and structure of embedding space—identifying features like clusters, loops, and voids that persist across scales.
+      </li>
+    </ul>
+
+    <h2>🔍 What Is Entropy, and Why Use It?</h2>
+    <p>
+      Entropy is a mathematical measure of uncertainty or unpredictability. Imagine a room: if everything is neatly arranged, the room is predictable — low entropy. If everything is scattered and chaotic, the entropy is high.
+    </p>
+    <p>
+      The <strong>Vendi Score</strong> uses this concept to measure how diverse a group of embeddings is. You can think of it like a panel of doctors: if they all give the same opinion, the group has low diversity (low entropy). But if their opinions diverge wildly, the discussion becomes unpredictable — high entropy, high Vendi Score.
+    </p>
+
+    <h2>🎯 Why Compare Vendi Score and PH?</h2>
+    <p>
+      These two approaches ask fundamentally different questions:
+    </p>
+    <ul>
+      <li>
+        Vendi Score asks: <em>“How spread out is this group of vectors?”</em>
+      </li>
+      <li>
+        Persistent Homology asks: <em>“What kind of shapes and structures exist in the data?”</em>
+      </li>
     </ul>
     <p>
-      By contrasting these two approaches, we uncover when they agree—and when topology reveals deeper structure hidden from classical statistics.
+      Sometimes, these two perspectives agree. But often, they don’t — and that’s where things get interesting. In medical imaging, a dataset may appear statistically similar but be topologically distinct, reflecting subtle differences in acquisition, anatomy, or pathology.
     </p>
 
     <h2>✅ Case 1: Agreement — Statistically and Topologically Similar</h2>
@@ -96,6 +120,33 @@
       Persistent homology helps expose these hidden differences.
     </p>
     <img src="assets/metrics/samediff.png" alt="Vendi Similar, PH Different" />
+
+    <h2>🔎 Case 4: Disagreement — PH Similar, Vendi Very Different</h2>
+    <p>
+      In this final case, the topology of the datasets is nearly identical. Persistent homology diagrams reveal similar clusters and lifespans, suggesting comparable structural features.
+    </p>
+    <p>
+      But the Vendi scores tell another story: one dataset appears much more "diverse" in terms of statistical spread. This tells us that while the two datasets share the same shapes, the <strong>density and spread of those shapes</strong> differ.
+    </p>
+    <p>
+      This might occur, for example, if one institution uses tighter acquisition settings, resulting in more compact embeddings, while another’s data is more variable—even if both capture the same anatomical structures.
+    </p>
+    <img src="assets/metrics/diffspread.png" alt="PH Similar, Vendi Different" />
+
+    <h2>🧩 Conclusion: Different Lenses, Broader Insight</h2>
+    <p>
+      Vendi Score and Persistent Homology measure different aspects of diversity in embedding space:
+    </p>
+    <ul>
+      <li><strong>Vendi</strong> focuses on statistical dispersion — how unpredictably the embeddings are distributed.</li>
+      <li><strong>PH</strong> examines structural and topological features — such as clusters, loops, and cavities.</li>
+    </ul>
+    <p>
+      While neither metric is universally better, they may capture <strong>complementary aspects</strong> of the data, depending on the context. In cases where statistical diversity appears similar, topological signals may still differ — and vice versa.
+    </p>
+    <p>
+      Using both together does not guarantee better performance, but it <strong>can offer a more nuanced view</strong> of embedding structure — especially in domains like medical imaging, where subtle differences may carry real-world significance.
+    </p>
   </div>
 </body>
 </html>
