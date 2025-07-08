@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Comparing Diversity Metrics in Medical Embeddings</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #ffffff;
+      color: #222222;
+      line-height: 1.6;
+    }
+
+    .section {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+
+    h1 {
+      color: #005f99;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      color: #0077cc;
+      font-size: 1.4rem;
+      margin-top: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      margin-bottom: 0.8rem;
+    }
+
+    ul {
+      margin-bottom: 1rem;
+    }
+
+    img {
+  width: 100%;
+  max-width: 720px;
+  display: block;
+  margin: 0.8rem auto 1.2rem auto;
+  border-radius: 8px;
+}
+
+
+    strong {
+      color: #005f99;
+    }
+  </style>
+</head>
+<body>
+  <div class="section">
+    <h1>📏 Comparing Metrics: Statistical vs. Topological Diversity</h1>
+    <p>
+      In this analysis, we compare two fundamentally different ways to measure diversity in medical image embeddings:
+    </p>
+    <ul>
+      <li><strong>Vendi Score</strong>: captures entropy in the embedding space, reflecting how broadly distributed the vectors are.</li>
+      <li><strong>Persistent Homology (PH)</strong>: captures the shape and structure of the distribution using tools from algebraic topology.</li>
+    </ul>
+    <p>
+      By contrasting these two approaches, we uncover when they agree—and when topology reveals deeper structure hidden from classical statistics.
+    </p>
+
+    <h2>✅ Case 1: Agreement — Statistically and Topologically Similar</h2>
+    <p>
+      Both Vendi and PH suggest these two institutions produce nearly identical data.
+      Their embedding distributions are statistically close (low entropy difference),
+      and their topological signatures—capturing clusters and voids—are nearly indistinguishable.
+    </p>
+    <img src="assets/metrics/compare_similar.png" alt="Vendi Similar, PH Similar" />
+
+    <h2>✅ Case 2: Agreement — Statistically and Topologically Different</h2>
+    <p>
+      In this example, both metrics confirm significant differences across datasets.
+      The Vendi score captures broad entropy shifts, while PH diagrams reveal structural divergence—
+      likely due to population differences, imaging protocols, or disease distributions.
+    </p>
+    <img src="assets/metrics/compare_diff.png" alt="Vendi Different, PH Different" />
+
+    <h2>🧠 Case 3: Disagreement — Vendi Similar, PH Very Different</h2>
+    <p>
+      This is the most revealing and clinically relevant case.
+      The Vendi scores suggest the distributions are similar — same average entropy, same vector spread.
+      But the PH diagrams tell a different story: topologically, the two datasets are quite distinct.
+    </p>
+    <p>
+      In practice, this could mean two datasets look statistically similar but vary in critical ways — such as abnormal morphology or imaging noise.
+      Persistent homology helps expose these hidden differences.
+    </p>
+    <img src="assets/metrics/samediff.png" alt="Vendi Similar, PH Different" />
+  </div>
+</body>
+</html>
