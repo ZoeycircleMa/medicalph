@@ -2,80 +2,87 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Beyond Pixels: How Topology Unlocks Universal Patterns in Images ?</title>
+  <title>Beyond Pixels: How Topology Unlocks Universal Patterns in Images</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"/>
- <style>
-  body {
-    margin: 0;
-    font-family: 'Inter', sans-serif;
-    background-color: #ffffff;
-    color: #111111;
-    line-height: 1.6;
-  }
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #ffffff;
+      color: #111111;
+      line-height: 1.6;
+    }
 
-  .nav {
-    position: sticky;
-    top: 0;
-    background: #f5f5f5;
-    border-bottom: 1px solid #ddd;
-    padding: 1rem 2rem;
-    z-index: 10;
-  }
+    .nav {
+      position: sticky;
+      top: 0;
+      background: #f5f5f5;
+      border-bottom: 1px solid #ddd;
+      padding: 1rem 2rem;
+      z-index: 10;
+    }
 
-  .nav a {
-    color: #0077cc;
-    text-decoration: none;
-    margin-right: 1.2rem;
-    font-weight: bold;
-  }
+    .nav a {
+      color: #0077cc;
+      text-decoration: none;
+      margin-right: 1.2rem;
+      font-weight: bold;
+    }
 
-  .nav a:hover {
-    text-decoration: underline;
-  }
+    .nav a:hover {
+      text-decoration: underline;
+    }
 
-  .section {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 0.8rem 1rem;
-  }
+    .section {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0.8rem 1rem;
+    }
 
-  .section + .section {
-    margin-top: 0;
-  }
+    .section + .section {
+      margin-top: 0;
+    }
 
-  h1, h2 {
-    color: #111;
-    margin: 0.8rem 0 0.4rem 0;
-  }
+    h1, h2 {
+      color: #111;
+      margin: 0.8rem 0 0.4rem 0;
+    }
 
-  iframe {
-    width: 100%;
-    border: none;
-    margin-bottom: 0.5rem;
-    transition: height 0.3s ease;
-  }
-</style>
+    .byline {
+      margin-top: -0.4rem;
+      margin-bottom: 1.2rem;
+      color: #666;
+      font-size: 0.95rem;
+    }
 
-<script>
-  function resizeIframe(iframe) {
-    if (!iframe) return;
-    const resize = () => {
-      try {
-        const doc = iframe.contentDocument || iframe.contentWindow.document;
-        if (doc && doc.body && doc.documentElement) {
-          iframe.style.height = doc.documentElement.scrollHeight + 'px';
+    iframe {
+      width: 100%;
+      border: none;
+      margin-bottom: 0.5rem;
+      transition: height 0.3s ease;
+    }
+  </style>
+
+  <script>
+    function resizeIframe(iframe) {
+      if (!iframe) return;
+      const resize = () => {
+        try {
+          const doc = iframe.contentDocument || iframe.contentWindow.document;
+          if (doc && doc.body && doc.documentElement) {
+            iframe.style.height = doc.documentElement.scrollHeight + 'px';
+          }
+        } catch (e) {
+          console.warn("Iframe resize failed", e);
         }
-      } catch (e) {
-        console.warn("Iframe resize failed", e);
-      }
-    };
-    resize();
-    setTimeout(resize, 300); // Fallback for delayed rendering
-  }
-</script>
-
+      };
+      resize();
+      setTimeout(resize, 300);
+    }
+  </script>
 </head>
+
 <body>
 
   <div class="nav">
@@ -89,33 +96,34 @@
   </div>
 
   <section id="home" class="section">
-  <h1>🧠 Beyond Pixels: How Topology Unlocks Universal Patterns in Images ?</h1>
-  <p>
-  Image embeddings carry more than just pixels — they encode structure, geometry, and relationships that we don’t always see at first glance.
-  But how do we measure that structure? How can we tell if two groups of images differ not just in appearance, but in <em>shape of distribution</em>?
-</p>
+    <h1>🧠 Beyond Pixels: How Topology Unlocks Universal Patterns in Images</h1>
+    <p class="byline">By <strong>Zoey Ma</strong>, ML Researcher @ Gradient Health</p>
 
-<p>
-  This project explores how <strong>persistent homology (PH)</strong>, a tool from topology, can reveal meaningful structural patterns in embedding space —
-  capturing loops, clusters, and voids beyond traditional statistics like entropy or pairwise distances.
-</p>
+    <p>
+      Image embeddings carry more than just pixels — they encode structure, geometry, and relationships that we don’t always see at first glance.
+      But how do we measure that structure? How can we tell if two groups of images differ not just in appearance, but in <em>shape of distribution</em>?
+    </p>
 
-<p>
-  Using embeddings from modern models like <strong>CLIP</strong>, we apply both <strong>statistical metrics</strong> (e.g. Vendi entropy) and <strong>topological summaries</strong> (e.g. PH diagrams)
-  to compare image groups — sometimes they agree, sometimes not. And those moments of disagreement are where PH shines most.
-</p>
+    <p>
+      This project explores how <strong>persistent homology (PH)</strong>, a tool from topology, can reveal meaningful structural patterns in embedding space —
+      capturing loops, clusters, and voids beyond traditional statistics like entropy or pairwise distances.
+    </p>
 
-<p>
-  To make this intuitive, we construct four visual case studies using everyday images (from datasets like <strong>CIFAR‑10</strong> and <strong>MNIST, Fashion-MNIST</strong>).
-  These show when statistical diversity aligns with topological structure — and when it doesn’t.
-</p>
+    <p>
+      Using embeddings from modern models like <strong>CLIP</strong>, we apply both <strong>statistical metrics</strong> (e.g. Vendi entropy) and <strong>topological summaries</strong> (e.g. PH diagrams)
+      to compare image groups — sometimes they agree, sometimes not. And those moments of disagreement are where PH shines most.
+    </p>
 
-<p>
-  Whether you're curious about shape in data, or exploring new ways to interpret embeddings,
-  this project shows how <strong>geometry + deep learning</strong> can offer fresh insights into data diversity — both measurable and visual.
-</p>
+    <p>
+      To make this intuitive, we construct four visual case studies using everyday images (from datasets like <strong>CIFAR‑10</strong> and <strong>MNIST, Fashion-MNIST</strong>).
+      These show when statistical diversity aligns with topological structure — and when it doesn’t.
+    </p>
 
-</section>
+    <p>
+      Whether you're curious about shape in data, or exploring new ways to interpret embeddings,
+      this project shows how <strong>geometry + deep learning</strong> can offer fresh insights into data diversity — both measurable and visual.
+    </p>
+  </section>
 
   <section id="ph-animation" class="section">
     <h2>🌀 Persistent Homology Animation</h2>
@@ -149,3 +157,4 @@
 
 </body>
 </html>
+
